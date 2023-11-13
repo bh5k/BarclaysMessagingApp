@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class PersonControllerTest {
+public class PersonControllerTests {
 
     @Test
     public void testGetAllPeople() {
