@@ -1,15 +1,28 @@
 package com.barclays.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Entity
+//@NoArgsConstructor
 public class Message {
 
     @Id
+    @GeneratedValue
     private Integer id;
 
     private String content;
+
+    public Message () {
+
+    }
+
+    public Message(String content) {
+        this.content = content;
+    }
 
     public Integer getId() {
         return id;
