@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 public class BarclaysMessagingAppApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(BarclaysMessagingAppApplication.class, args);
 	}
 }

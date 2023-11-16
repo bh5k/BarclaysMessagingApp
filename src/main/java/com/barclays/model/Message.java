@@ -16,6 +16,8 @@ public class Message {
 
     private String content;
 
+    private String desc;
+
     public Message () {
 
     }

@@ -19,6 +19,7 @@ public class MessageControllerTests {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Message[]> response =
                 restTemplate.getForEntity("http://localhost:8080/messages", Message[].class);
+        assertEquals(200, response.getStatusCode());
         Message[] messages = response.getBody();
 
         List<Message> messagesList = Arrays.asList(messages);

@@ -13,7 +13,7 @@ public class Populator {
 
     private MessageRepository messageRepository;
 
-    //@EventListener(ContextRefreshedEvent.class)
+    @EventListener(ContextRefreshedEvent.class)
     public void populate(){
         Message m1 = new Message();
         m1.setContent("Bryan is Best");

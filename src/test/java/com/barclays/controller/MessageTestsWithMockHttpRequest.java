@@ -2,6 +2,7 @@ package com.barclays.controller;
 
 import com.barclays.model.Message;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -28,16 +29,23 @@ public class MessageTestsWithMockHttpRequest {
 
     @Autowired
     MockMvc mockMvc;
-    ObjectMapper mapper = new ObjectMapper();
+    ObjectMapper mapper;
+    ResultActions resultActions;
+
+    @BeforeEach
+    public void setup() throws Exception {
+        resultActions = this.mockMvc.perform(MockMvcRequestBuilders.get("/messages")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+        mapper = new ObjectMapper();
+    }
+
 
     @Test
     public void testGettingAllMessages() throws Exception {
         int expectedLength = 4;
-
-        ResultActions resultActions = this.mockMvc.perform(MockMvcRequestBuilders.get("/messages")
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk());
 
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
