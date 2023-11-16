@@ -1,12 +1,12 @@
 package com.barclays.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -20,6 +20,13 @@ public class Person {
     private int id;
     private String name;
     private String emailAddress;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Address address;
+
+    public Person(String name, String emailAddress) {
+        this.name = name;
+        this.emailAddress = emailAddress;
+    }
 
     public Person (String name) {
         this.name = name;
