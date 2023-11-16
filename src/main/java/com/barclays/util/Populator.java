@@ -33,7 +33,7 @@ public class Populator {
         messageRepository.save(m4);
     }
 
-    @EventListener(ContextRefreshedEvent.class)
+    //@EventListener(ContextRefreshedEvent.class)
     public void populatePeeps(){
         Person person = new Person();
         person.setName("Bryan");

@@ -18,10 +18,6 @@ public class MessageServiceImpl implements MessageService {
 
     private MessageRepository messageRepository;
 
-//    public MessageServiceImpl(MessageRepository messageRepository) {
-//        this.messageRepository = messageRepository;
-//    }
-
     @Override
     public List<Message> findAll() {
         List<Message> messages = new ArrayList<>();
