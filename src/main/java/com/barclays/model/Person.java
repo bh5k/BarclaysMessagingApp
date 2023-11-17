@@ -1,10 +1,7 @@
 package com.barclays.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -13,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Person {
 
     @Id
@@ -22,6 +20,9 @@ public class Person {
     private String emailAddress;
     @OneToOne(cascade = CascadeType.PERSIST)
     private Address address;
+
+    @OneToMany(mappedBy = "sender")
+    private List<Message> sentMessages;
 
     public Person(String name, String emailAddress) {
         this.name = name;

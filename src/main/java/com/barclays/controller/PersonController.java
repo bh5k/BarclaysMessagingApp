@@ -5,9 +5,7 @@ import com.barclays.service.PersonService;
 import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,6 +16,14 @@ import java.util.List;
 public class PersonController {
 
     private PersonService personService;
+
+    @PostMapping("/person")
+    public Person createPerson (@RequestBody Person person) {
+        System.out.println(person);
+        return null;
+
+        //return personService.save(person);
+    }
 
     @GetMapping(value = "/person")
     public List<Person> getPeople(@PathParam("name") String name) {
