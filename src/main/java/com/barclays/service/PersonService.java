@@ -10,4 +10,6 @@ public interface PersonService {
     List<Person> findAll();
 
     List<Person> searchByName(String name);
+
+    Person save(Person person);
 }

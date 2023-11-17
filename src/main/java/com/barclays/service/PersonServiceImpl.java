@@ -29,4 +29,9 @@ public class PersonServiceImpl implements PersonService {
     public List<Person> searchByName(String name) {
         return personRepository.searchByName(name);
     }
+
+    @Override
+    public Person save(Person person) {
+        return personRepository.save(person);
+    }
 }

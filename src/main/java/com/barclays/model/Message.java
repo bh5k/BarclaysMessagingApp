@@ -3,11 +3,16 @@ package com.barclays.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Entity
-//@NoArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Message {
 
     @Id
@@ -16,27 +21,11 @@ public class Message {
 
     private String content;
 
-    public Message () {
-
-    }
+    @ManyToOne
+    private Person sender;
 
     public Message(String content) {
         this.content = content;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 }
