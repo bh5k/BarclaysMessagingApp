@@ -38,7 +38,15 @@ pipeline {
 //          }
         stage('Deploy') {
             steps {
-                sh './jenkins/scripts/deploy.sh'
+               echo "Deploying to our users..."
+               echo "Deploying to our users..."
+
+               echo "[INFO] Deploying to users..."
+               sleep 3;
+               echo "
+               [INFO] ------------------------------------------------------------------------
+               [INFO] DEPLOYMENT SUCCESS (This is really fake)
+               [INFO] ------------------------------------------------------------------------"
             }
         }
     }
