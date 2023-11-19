@@ -19,10 +19,7 @@ public class PersonController {
 
     @PostMapping("/person")
     public Person createPerson (@RequestBody Person person) {
-        System.out.println(person);
-        return null;
-
-        //return personService.save(person);
+        return personService.save(person);
     }
 
     @GetMapping(value = "/person")
