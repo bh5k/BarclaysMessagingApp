@@ -21,9 +21,6 @@ public class Person {
     @OneToOne(cascade = CascadeType.PERSIST)
     private Address address;
 
-    @OneToMany(mappedBy = "sender")
-    private List<Message> sentMessages;
-
     public Person(String name, String emailAddress) {
         this.name = name;
         this.emailAddress = emailAddress;
