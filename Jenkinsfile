@@ -38,15 +38,7 @@ pipeline {
 //          }
         stage('Deploy') {
             steps {
-               echo "Deploying to our users..."
-               echo "Deploying to our users..."
-
-               echo "[INFO] Deploying to users..."
-               sleep 3;
-               echo "
-               [INFO] ------------------------------------------------------------------------
-               [INFO] DEPLOYMENT SUCCESS (This is really fake)
-               [INFO] ------------------------------------------------------------------------"
+               echo "DEPLOYMENT SUCCESSFUL!!  And the crowd goes wild!"
             }
         }
     }
