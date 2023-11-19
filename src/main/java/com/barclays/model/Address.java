@@ -3,26 +3,21 @@ package com.barclays.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
-public class Message {
+public class Address {
 
     @Id
     @GeneratedValue
     private Integer id;
-
-    private String content;
-
-    public Message(String content) {
-        this.content = content;
-    }
+    private String lineOne;
+    private String lineTwo;
+    private String state;
+    private String postalCode;
+    private String country;
 
 }
