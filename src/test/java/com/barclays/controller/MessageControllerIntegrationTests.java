@@ -24,7 +24,7 @@ public class MessageControllerIntegrationTests {
     @Test
     public void testGetMessage() {
         Message message = messageController.getMessage(1);
-        assertEquals("Spring is cool: 1", message.getContent());
+        assertEquals("Bryan is Best", message.getContent());
     }
 
 }
