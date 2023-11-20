@@ -23,7 +23,7 @@ public class PersonController {
     }
 
     @PutMapping("/person")
-    public Person updatePerson (@RequestBody Person person) {
+    public Person updatePerson(@RequestBody Person person) {
         return personService.save(person);
     }
 
