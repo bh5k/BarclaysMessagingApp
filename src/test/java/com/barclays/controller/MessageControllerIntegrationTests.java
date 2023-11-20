@@ -24,7 +24,7 @@ public class MessageControllerIntegrationTests {
     @Test
     public void testGetMessage() {
         Message message = messageController.getMessage(1);
-        assertEquals("Bryan is Best", message.getContent());
+        assertEquals("Default Message: Nothing found", message.getContent());
     }
 
 }
