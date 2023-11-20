@@ -27,6 +27,7 @@ public class PersonController {
         return personService.save(person);
     }
 
+    //http://localhost:8080/person?filter=Bryan
     @GetMapping(value = "/person")
     public List<Person> getPeople(@PathParam("name") String name) {
         List<Person> peeps = Collections.emptyList();
@@ -39,6 +40,16 @@ public class PersonController {
 
         return peeps;
     }
+
+    //
+    //http://localhost:8080/albums/{albumId}/photos/{photoId}
+//    @GetMapping(value = "/album/{albumId}/photos/{photoId}")
+//    public Photo getPhoto(@PathVariable String albumId, @PathVariable String photoId) {
+//        Photo photo = somePhotoService.findByAlbumAndPhotoId(albumId, photoId);
+//        return photo;
+//    }
+
+
 
     @GetMapping(value = "/person/{id}")
     public Person getPerson(@PathVariable int id) {
