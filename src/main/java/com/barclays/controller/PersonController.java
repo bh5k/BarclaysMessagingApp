@@ -22,6 +22,11 @@ public class PersonController {
         return personService.save(person);
     }
 
+    @PutMapping("/person")
+    public Person updatePerson (@RequestBody Person person) {
+        return personService.save(person);
+    }
+
     @GetMapping(value = "/person")
     public List<Person> getPeople(@PathParam("name") String name) {
         List<Person> peeps = Collections.emptyList();
