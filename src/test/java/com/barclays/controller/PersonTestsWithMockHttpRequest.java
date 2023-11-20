@@ -1,8 +1,9 @@
 package com.barclays.controller;
 
+import com.barclays.model.Address;
 import com.barclays.model.Message;
+import com.barclays.model.Person;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -25,38 +26,41 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @AutoConfigureMockMvc
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @TestPropertySource(properties = {"spring.sql.init.mode=never"})
-public class MessageTestsWithMockHttpRequest {
+public class PersonTestsWithMockHttpRequest {
 
     @Autowired
     MockMvc mockMvc;
     ObjectMapper mapper;
     ResultActions resultActions;
 
-    @BeforeEach
-    public void setup() throws Exception {
-        resultActions = this.mockMvc.perform(MockMvcRequestBuilders.get("/messages")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+    @Test
+    public void testCreatePerson() throws Exception {
+        Person person = new Person();
+        person.setName("Bryan");
+        person.setEmailAddress("not@my.com");
+
+        Address address = new Address();
+        address.setLineOne("5707 S");
+        address.setLineTwo("Turner Dr");
+        address.setState("UT");
+        address.setPostalCode("84121");
+        address.setCountry("USA");
+
+        person.setAddress(address);
 
         mapper = new ObjectMapper();
-    }
 
-    @Test
-    public void testGettingAllMessages() throws Exception {
-        int expectedLength = 4;
+        resultActions = this.mockMvc.perform(MockMvcRequestBuilders.post("/person")
+                .content(mapper.writeValueAsString(person))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
 
         MvcResult result = resultActions.andReturn();
         String contentAsString = result.getResponse().getContentAsString();
 
-        Message[] messages = mapper.readValue(contentAsString, Message[].class);
+        person = mapper.readValue(contentAsString, Person.class);
 
-        assertAll("Testing from a test-data.sql file",
-                () -> assertEquals(expectedLength, messages.length),
-                () -> assertEquals("My first message out of the data file", messages[0].getContent()),
-                () -> assertEquals("My second message out of the data file", messages[1].getContent()),
-                () -> assertEquals("My third message out of the data file", messages[2].getContent()),
-                () -> assertEquals("My fourth message out of the data file", messages[3].getContent()));
-
+        assertEquals(1, person.getId());
     }
 }
