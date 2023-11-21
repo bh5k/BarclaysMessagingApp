@@ -26,7 +26,7 @@ public class PersonControllerTests {
         Person person =
                 restTemplate.getForObject("http://localhost:8080/person/2", Person.class);
 
-        assertEquals("Bryan", person.getName());
+        assertEquals("Steve", person.getName());
     }
     
 }

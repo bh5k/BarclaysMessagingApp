@@ -41,22 +41,9 @@ public class PersonController {
         return peeps;
     }
 
-    //
-    //http://localhost:8080/albums/{albumId}/photos/{photoId}
-//    @GetMapping(value = "/album/{albumId}/photos/{photoId}")
-//    public Photo getPhoto(@PathVariable String albumId, @PathVariable String photoId) {
-//        Photo photo = somePhotoService.findByAlbumAndPhotoId(albumId, photoId);
-//        return photo;
-//    }
-
-
-
     @GetMapping(value = "/person/{id}")
     public Person getPerson(@PathVariable int id) {
-        Person person = new Person();
-        person.setName("Bryan");
-        person.setEmailAddress("bryankhansen@gmail.com");
-        return person;
+        return personService.findById(id);
     }
 
     @GetMapping("/person/search")

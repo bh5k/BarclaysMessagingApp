@@ -18,13 +18,13 @@ public class MessageControllerIntegrationTests {
     @Test
     public void testGetAllMessages() {
         List<Message> messages = messageController.getAllMessages("");
-        assertEquals(8, messages.size());
+        assertEquals(4, messages.size());
     }
 
     @Test
     public void testGetMessage() {
-        Message message = messageController.getMessage(1);
-        assertEquals("Bryan is Best", message.getContent());
+        Message message = messageController.getMessage(150);
+        assertEquals("My first message out of the data file", message.getContent());
     }
 
 }
