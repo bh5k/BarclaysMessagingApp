@@ -11,6 +11,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@SuppressWarnings("all")
 //@SpringBootTest
 public class MessageControllerTests {
 

@@ -24,7 +24,7 @@ public class Person {
     private Address address;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "sender")
+    @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY)
     private List<Message> sentMessages;
 
 

@@ -8,6 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@SuppressWarnings("all")
 //@SpringBootTest
 public class PersonControllerTests {
 

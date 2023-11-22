@@ -1,6 +1,5 @@
 package com.barclays.service;
 
-import com.barclays.model.Message;
 import com.barclays.model.Person;
 import com.barclays.repository.PersonRepository;
 import lombok.AllArgsConstructor;
