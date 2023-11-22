@@ -23,7 +23,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @AutoConfigureMockMvc
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @TestPropertySource(properties = {"spring.sql.init.mode=never"})
-public class PersonTestsWithMockHttpRequest {
+class PersonTestsWithMockHttpRequest {
+
 
     @Autowired
     MockMvc mockMvc;
@@ -31,7 +32,7 @@ public class PersonTestsWithMockHttpRequest {
     ResultActions resultActions;
 
     @Test
-    public void testCreatePerson() throws Exception {
+    void testCreatePerson() throws Exception {
         Person person = new Person();
         person.setName("Bryan");
         person.setEmailAddress("not@my.com");

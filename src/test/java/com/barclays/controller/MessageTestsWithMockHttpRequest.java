@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @AutoConfigureMockMvc
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @TestPropertySource(properties = {"spring.sql.init.mode=never"})
-public class MessageTestsWithMockHttpRequest {
+class MessageTestsWithMockHttpRequest {
 
     @Autowired
     MockMvc mockMvc;
@@ -33,7 +33,7 @@ public class MessageTestsWithMockHttpRequest {
     ResultActions resultActions;
 
     @BeforeEach
-    public void setup() throws Exception {
+    void setup() throws Exception {
         resultActions = this.mockMvc.perform(MockMvcRequestBuilders.get("/messages")
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
@@ -43,7 +43,7 @@ public class MessageTestsWithMockHttpRequest {
     }
 
     @Test
-    public void testGettingAllMessages() throws Exception {
+    void testGettingAllMessages() throws Exception {
         int expectedLength = 4;
 
         MvcResult result = resultActions.andReturn();

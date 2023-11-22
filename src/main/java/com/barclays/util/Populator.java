@@ -6,8 +6,6 @@ import com.barclays.model.Person;
 import com.barclays.repository.MessageRepository;
 import com.barclays.repository.PersonRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -51,9 +49,9 @@ public class Populator {
         personRepository.save(person);
 
         Person person2 = new Person();
-        person.setName("Steve");
-        person.setEmailAddress("steve@abc.com");
+        person2.setName("Steve");
+        person2.setEmailAddress("steve@abc.com");
 
-        personRepository.save(person);
+        personRepository.save(person2);
     }
 }

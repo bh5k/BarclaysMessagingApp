@@ -25,7 +25,7 @@ public class MessageController {
     @GetMapping("/messages")
     public List<Message> getAllMessages(@PathParam("filter") String filter) {
         log.debug("In the getAll Messages method");
-        List<Message> messages = Collections.emptyList();
+        List<Message> messages;
         if(StringUtils.isNotBlank(filter)) {
             log.debug("In the getAll Messages method: " + filter);
             messages = messageService.findByContentContains(filter);

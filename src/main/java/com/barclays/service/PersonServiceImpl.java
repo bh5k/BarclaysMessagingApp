@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -33,5 +34,11 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person save(Person person) {
         return personRepository.save(person);
+    }
+
+    @Override
+    public Person findById(int id) {
+        Optional<Person> person = personRepository.findById(id);
+        return person.orElseGet(() -> new Person("Default person"));
     }
 }
