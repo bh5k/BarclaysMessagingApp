@@ -42,7 +42,6 @@ class MessageTestsWithMockHttpRequest {
         mapper = new ObjectMapper();
     }
 
-
     @Test
     void testGettingAllMessages() throws Exception {
         int expectedLength = 4;
@@ -60,5 +59,4 @@ class MessageTestsWithMockHttpRequest {
                 () -> assertEquals("My fourth message out of the data file", messages[3].getContent()));
 
     }
-
 }

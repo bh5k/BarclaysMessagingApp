@@ -16,6 +16,9 @@ public class Person {
 
     @Id
     @GeneratedValue
+    //0@SequenceGenerator(name = "personSeqGen", sequenceName = "person_seq",
+    //        initialValue = 1000, allocationSize = 1)
+    //@GeneratedValue(generator = "personSeqGen")
     private int id;
     private String name;
     private String emailAddress;

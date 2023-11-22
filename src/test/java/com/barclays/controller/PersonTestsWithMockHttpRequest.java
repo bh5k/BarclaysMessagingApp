@@ -25,6 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestPropertySource(properties = {"spring.sql.init.mode=never"})
 class PersonTestsWithMockHttpRequest {
 
+
     @Autowired
     MockMvc mockMvc;
     ObjectMapper mapper;
@@ -59,5 +60,5 @@ class PersonTestsWithMockHttpRequest {
         person = mapper.readValue(contentAsString, Person.class);
 
         assertEquals(1, person.getId());
-    } 
+    }
 }
