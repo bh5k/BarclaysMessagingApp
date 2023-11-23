@@ -33,4 +33,10 @@ public class Person {
         this.name = name;
     }
 
+    public Person(Integer id, String name, String emailAddress) {
+        this.id = id;
+        this.name = name;
+        this.emailAddress = emailAddress;
+    }
+
 }
